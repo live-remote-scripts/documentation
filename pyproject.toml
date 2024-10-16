@@ -1,0 +1,13 @@
+[project]
+name = "live-remote-scripts"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocs-material>=9.5.41",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

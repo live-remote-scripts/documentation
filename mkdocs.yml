@@ -1,0 +1,17 @@
+site_name: Unofficial Live Remote Scripts Docs
+site_url: https://live-remote-scripts.github.io
+theme:
+  name: material
+nav:
+  - About: index.md
+  - Getting Started: getting_started.md
+  - Remote Scripts API:
+      - Main Components: api_main_components.md
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
