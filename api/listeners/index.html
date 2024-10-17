@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://live-remote-scripts.github.io/">
+        <link rel="canonical" href="https://live-remote-scripts.github.io/api/listeners/">
       
       
+        <link rel="prev" href="../live_object_model/">
       
-        <link rel="next" href="getting_started/">
+      
+        <link rel="next" href="../../contribution/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
     
     
       
-        <title>Unofficial Live Remote Scripts Docs</title>
+        <title>Listeners - Unofficial Live Remote Scripts Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome" class="md-skip">
+        <a href="#event-listeners" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Unofficial Live Remote Scripts Docs" class="md-header__button md-logo" aria-label="Unofficial Live Remote Scripts Docs" data-md-component="logo">
+    <a href="../.." title="Unofficial Live Remote Scripts Docs" class="md-header__button md-logo" aria-label="Unofficial Live Remote Scripts Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              Listeners
             
           </span>
         </div>
@@ -181,7 +183,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Unofficial Live Remote Scripts Docs" class="md-nav__button md-logo" aria-label="Unofficial Live Remote Scripts Docs" data-md-component="logo">
+    <a href="../.." title="Unofficial Live Remote Scripts Docs" class="md-nav__button md-logo" aria-label="Unofficial Live Remote Scripts Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -196,19 +198,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -217,7 +210,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -229,7 +221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/" class="md-nav__link">
+      <a href="../../getting_started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -246,17 +238,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -270,7 +264,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Remote Scripts API
@@ -284,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/main_components/" class="md-nav__link">
+      <a href="../main_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -305,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/live_object_model/" class="md-nav__link">
+      <a href="../live_object_model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -323,10 +317,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="api/listeners/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -335,6 +338,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -354,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contribution/" class="md-nav__link">
+      <a href="../../contribution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -400,13 +404,7 @@
                   
 
 
-<h1 id="welcome">Welcome</h1>
-<p>Welcome to the unofficial live remote scripts docs. This is an attempt
-to document what i have learned while writing my custom user remote script
-for Ableton Live. This Documentation is intended to be written by the ableton
-live community to make it easier for users to write their own custom remote scripts.</p>
-<p>Special thanks to <a href="https://github.com/ggyshay">gabrielyshay</a> for his article on <a href="https://gabrielyshay.medium.com/how-to-make-a-control-surface-for-ableton-56360a0e7a2f">how to make a control surface for Ableton</a> 
-which truly helped me out on getting started with writing my own custom script and therefore this documentation.</p>
+<h1 id="event-listeners">Event Listeners</h1>
 
 
 
@@ -453,10 +451,10 @@ which truly helped me out on getting started with writing my own custom script a
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
