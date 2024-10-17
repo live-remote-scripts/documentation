@@ -43,6 +43,9 @@ You do this by calling the functions available on the `ElementsBase` instance.
 
 Add an encoder element for the midi channel `channel` and the message `identifier`.
 
+This function will add a new `EncoderElement` property to the `Elements` class with the name matching
+the value for `name` in _lower_snake_case_.
+
 | arguments                                                                        | description                                                                                         |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `identifier: int`                                                                | The midi message data value to listen to                                                            |
@@ -57,7 +60,10 @@ Add an encoder element for the midi channel `channel` and the message `identifie
 
 #### `add_button`
 
-Add an encoder element for the midi channel `channel` and the message `identifier`.
+Add a button element for the midi channel `channel` and the message `identifier`.
+
+This function will add a new `ButtonControl` property to the `Elements` class with the name matching
+the value for `name` in _lower_snake_case_.
 
 | arguments                                                                 | description                                                                                         |
 |---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -67,6 +73,39 @@ Add an encoder element for the midi channel `channel` and the message `identifie
 | `msg_type: int` <br/>(default: `ableton.v2.control_surface.MIDI_CC_TYPE`) | The midi message type of the hardware control. [See all available types](#Valid-midi-message-types) |
 | `is_momentary: bool` <br/>(default: `True`)                               | TODO                                                                                                |
 | `led_channel: int` (default: `None`)                                      | TODO                                                                                                |
+
+#### `add_modifier_button`
+
+Add a button that is not used directly as a button but as a modifier for another control element.
+This could be a shift button or something similar. Use this in combination with `add_modified_control`.
+
+This function will add a new `ButtonControl` property to the `Elements` class with the name matching
+the value for `name` in _lower_snake_case_.
+
+| arguments                                                                 | description                                                                                         |
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `identifier: int`                                                         | The midi message data value to listen to                                                            |
+| `name: str`                                                               | The name of the control that is used to reference it within your project                            |
+| `channel: int` (default: `0`)                                             | The midi message channel to listen to                                                               |
+| `msg_type: int` <br/>(default: `ableton.v2.control_surface.MIDI_CC_TYPE`) | The midi message type of the hardware control. [See all available types](#Valid-midi-message-types) |
+| `is_momentary: bool` <br/>(default: `True`)                               | TODO                                                                                                |
+| `led_channel: int` (default: `None`)                                      | TODO                                                                                                |
+
+#### `add_modified_control`
+
+This function will create a new control element with an alternative functionality to an existing one.
+The new control element will receive and send signals, whenever its modifier is active. Use in combination with
+`add_modifier_button`.
+
+This function will add a new `ControlElement` property to the `Elements` class with the name matching
+the value for `name` in _lower_snake_case_.
+
+| arguments                            | description                                                              |
+|--------------------------------------|--------------------------------------------------------------------------|
+| `control: ControlElement`            | The control element for which to create an alternative functionality     |
+| `modifier: ControlElement`           | The modifier which enables the alternative functionality when active     |
+| `name: str`                          | The name of the control that is used to reference it within your project |
+| `is_private: bool` (default: `True`) | TODO                                                                     |
 
 #### `add_encoder_matrix`
 

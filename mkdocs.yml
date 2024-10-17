@@ -4,6 +4,7 @@ theme:
   name: material
   palette:
     scheme: slate
+  logo: assets/logo.png
 nav:
   - About: index.md
   - Getting Started: getting_started.md
