@@ -90,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Unofficial Live Remote Scripts Docs" class="md-header__button md-logo" aria-label="Unofficial Live Remote Scripts Docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -185,8 +184,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Unofficial Live Remote Scripts Docs" class="md-nav__button md-logo" aria-label="Unofficial Live Remote Scripts Docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     Unofficial Live Remote Scripts Docs
@@ -365,6 +363,24 @@
   <a href="#add_button" class="md-nav__link">
     <span class="md-ellipsis">
       add_button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_modifier_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_modifier_button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_modified_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_modified_control
     </span>
   </a>
   
@@ -601,6 +617,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add_modifier_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_modifier_button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_modified_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_modified_control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add_encoder_matrix" class="md-nav__link">
     <span class="md-ellipsis">
       add_encoder_matrix
@@ -726,6 +760,8 @@ You do this by calling the functions available on the <code>ElementsBase</code> 
 <h3 id="functions">Functions</h3>
 <h4 id="add_encoder_element"><code>add_encoder_element</code></h4>
 <p>Add an encoder element for the midi channel <code>channel</code> and the message <code>identifier</code>.</p>
+<p>This function will add a new <code>EncoderElement</code> property to the <code>Elements</code> class with the name matching
+the value for <code>name</code> in <em>lower_snake_case</em>.</p>
 <table>
 <thead>
 <tr>
@@ -773,7 +809,9 @@ You do this by calling the functions available on the <code>ElementsBase</code> 
 </tbody>
 </table>
 <h4 id="add_button"><code>add_button</code></h4>
-<p>Add an encoder element for the midi channel <code>channel</code> and the message <code>identifier</code>.</p>
+<p>Add a button element for the midi channel <code>channel</code> and the message <code>identifier</code>.</p>
+<p>This function will add a new <code>ButtonControl</code> property to the <code>Elements</code> class with the name matching
+the value for <code>name</code> in <em>lower_snake_case</em>.</p>
 <table>
 <thead>
 <tr>
@@ -804,6 +842,77 @@ You do this by calling the functions available on the <code>ElementsBase</code> 
 </tr>
 <tr>
 <td><code>led_channel: int</code> (default: <code>None</code>)</td>
+<td>TODO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="add_modifier_button"><code>add_modifier_button</code></h4>
+<p>Add a button that is not used directly as a button but as a modifier for another control element.
+This could be a shift button or something similar. Use this in combination with <code>add_modified_control</code>.</p>
+<p>This function will add a new <code>ButtonControl</code> property to the <code>Elements</code> class with the name matching
+the value for <code>name</code> in <em>lower_snake_case</em>.</p>
+<table>
+<thead>
+<tr>
+<th>arguments</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>identifier: int</code></td>
+<td>The midi message data value to listen to</td>
+</tr>
+<tr>
+<td><code>name: str</code></td>
+<td>The name of the control that is used to reference it within your project</td>
+</tr>
+<tr>
+<td><code>channel: int</code> (default: <code>0</code>)</td>
+<td>The midi message channel to listen to</td>
+</tr>
+<tr>
+<td><code>msg_type: int</code> <br/>(default: <code>ableton.v2.control_surface.MIDI_CC_TYPE</code>)</td>
+<td>The midi message type of the hardware control. <a href="#Valid-midi-message-types">See all available types</a></td>
+</tr>
+<tr>
+<td><code>is_momentary: bool</code> <br/>(default: <code>True</code>)</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td><code>led_channel: int</code> (default: <code>None</code>)</td>
+<td>TODO</td>
+</tr>
+</tbody>
+</table>
+<h4 id="add_modified_control"><code>add_modified_control</code></h4>
+<p>This function will create a new control element with an alternative functionality to an existing one.
+The new control element will receive and send signals, whenever its modifier is active. Use in combination with
+<code>add_modifier_button</code>.</p>
+<p>This function will add a new <code>ControlElement</code> property to the <code>Elements</code> class with the name matching
+the value for <code>name</code> in <em>lower_snake_case</em>.</p>
+<table>
+<thead>
+<tr>
+<th>arguments</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>control: ControlElement</code></td>
+<td>The control element for which to create an alternative functionality</td>
+</tr>
+<tr>
+<td><code>modifier: ControlElement</code></td>
+<td>The modifier which enables the alternative functionality when active</td>
+</tr>
+<tr>
+<td><code>name: str</code></td>
+<td>The name of the control that is used to reference it within your project</td>
+</tr>
+<tr>
+<td><code>is_private: bool</code> (default: <code>True</code>)</td>
 <td>TODO</td>
 </tr>
 </tbody>
