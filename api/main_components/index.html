@@ -333,11 +333,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#specification" class="md-nav__link">
+  <a href="#elements" class="md-nav__link">
     <span class="md-ellipsis">
-      Specification
+      Elements
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlsurfacespecification" class="md-nav__link">
+    <span class="md-ellipsis">
+      ControlSurfaceSpecification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlSurfaceSpecification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -354,15 +378,6 @@
   <a href="#component" class="md-nav__link">
     <span class="md-ellipsis">
       Component
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Elements
     </span>
   </a>
   
@@ -482,11 +497,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#specification" class="md-nav__link">
+  <a href="#elements" class="md-nav__link">
     <span class="md-ellipsis">
-      Specification
+      Elements
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlsurfacespecification" class="md-nav__link">
+    <span class="md-ellipsis">
+      ControlSurfaceSpecification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlSurfaceSpecification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -503,15 +542,6 @@
   <a href="#component" class="md-nav__link">
     <span class="md-ellipsis">
       Component
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Elements
     </span>
   </a>
   
@@ -543,23 +573,86 @@ within the <code>__init__</code> file. The function needs to return your custom 
 the <code>ControlSurface</code>. The function has one call argument <code>c_instance</code> which I guess is
 an instance of some Custom Remote Script abstraction from the Live core which is written
 in C++.</p>
-<p>Live will (most probably) call this function upon application start.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">create_instance</span><span class="p">(</span><span class="n">c_instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ControlSurface</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="n">CustomBCR2000</span><span class="p">(</span><span class="n">c_instance</span><span class="o">=</span><span class="n">c_instance</span><span class="p">)</span>
+<p>Live will (most probably) call this function whenever you select the remote
+script in the preferences or on application start if it has been selected previously.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># __init__.py</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">ableton.v3.control_surface</span> <span class="kn">import</span> <span class="n">ControlSurface</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">.bcr_2000</span> <span class="kn">import</span> <span class="n">CustomBCR2000</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span> <span class="nf">create_instance</span><span class="p">(</span><span class="n">c_instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ControlSurface</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">return</span> <span class="n">CustomBCR2000</span><span class="p">(</span><span class="n">c_instance</span><span class="o">=</span><span class="n">c_instance</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Whenever the import of this file, or the call of the <code>create_instance</code> function
 errors, your remote script <strong>will not</strong> be available in Live.</p>
-<h2 id="specification"><code>Specification</code></h2>
+<h2 id="elements"><code>Elements</code></h2>
+<h2 id="controlsurfacespecification"><code>ControlSurfaceSpecification</code></h2>
+<p>The Specification is the base configuration of your Remote Control Script. To create
+your own <code>Specification</code> you inherit from the <code>ableton.v3.control_surface.ControlSurfaceSpecification</code>
+class and set the properties you want to configure.</p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>python type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>elements_type</code></td>
+<td><code>Type[ElementsBase]</code></td>
+<td>Subclass of <code>ableton.v3.control_surface.ElementsBase</code> for the definition of your hardware controls such as encoders, buttons etc.</td>
+</tr>
+<tr>
+<td><code>create_mappings_function</code></td>
+<td><code>Callable[[ControlSurface], Dict[str, any]]</code></td>
+<td>A function that maps the names of the hardware controls defined in the <code>elements_type</code> to the software controls of your components.</td>
+</tr>
+<tr>
+<td><code>component_map</code></td>
+<td><code>Dict[str, Type[Component]]</code></td>
+<td>A dictionary that maps component names to <code>ableton.v3.control_surface.Component</code> types. The defined components within this map will be loaded automatically and do not to be instantiated by your own. You can access them within your <code>ControlSurface</code> class via <code>self.component_map["name-of-the-component"]</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># speficication.py</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">ableton.v3.control_surface</span> <span class="kn">import</span> <span class="n">ControlSurfaceSpecification</span><span class="p">,</span> <span class="n">ControlSurface</span><span class="p">,</span> <span class="n">DeviceComponent</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">.elements</span> <span class="kn">import</span> <span class="n">BCR2000Elements</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">def</span> <span class="nf">create_mappings</span><span class="p">(</span><span class="n">_</span><span class="p">:</span> <span class="n">ControlSurface</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">]:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="s2">&quot;Device&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="s2">&quot;parameter_controls&quot;</span><span class="p">:</span> <span class="s2">&quot;device_controls&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="p">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">class</span> <span class="nc">BCR2000Specification</span><span class="p">(</span><span class="n">ControlSurfaceSpecification</span><span class="p">):</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">elements_type</span> <span class="o">=</span> <span class="n">BCR2000Elements</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">create_mappings_function</span> <span class="o">=</span> <span class="n">create_mappings</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">component_map</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="s2">&quot;Device&quot;</span><span class="p">:</span> <span class="n">DeviceComponent</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="p">}</span>
+</span></code></pre></div>
 <h2 id="controlsurface"><code>ControlSurface</code></h2>
 <p>The Control Surface represents your controller. Each control surface is instantiated once
 it is selected in Live. You need to inherit from this class.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span> <span class="nc">CustomBCR2000</span><span class="p">(</span><span class="n">ControlSurface</span><span class="p">):</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="c1"># TODO Override init and provide specification</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="c1"># log a message</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="c1"># setup function</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># bcr_2000.py</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">ableton.v3.control_surface</span> <span class="kn">import</span> <span class="n">ControlSurface</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">class</span> <span class="nc">CustomBCR2000</span><span class="p">(</span><span class="n">ControlSurface</span><span class="p">):</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># TODO Override init and provide specification</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># log a message</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># setup function</span>
 </span></code></pre></div>
 <h2 id="component"><code>Component</code></h2>
-<h2 id="elements"><code>Elements</code></h2>
 
 
 
