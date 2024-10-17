@@ -30,7 +30,82 @@ def create_instance(c_instance) -> ControlSurface:
 Whenever the import of this file, or the call of the `create_instance` function
 errors, your remote script **will not** be available in Live.
 
-## `Elements`
+## `ElementsBase`
+
+With the `ableton.v3.control_surface.ElementsBase` class you define the interface to your
+hardware controls and make them accessible for your Remote Script. Therefore you need to
+inherit from the `ElementsBase` and add the control elements you want within its `__init__` function.
+You do this by calling the functions available on the `ElementsBase` instance.
+
+### Functions
+
+#### `add_encoder_element`
+
+Add an encoder element for the midi channel `channel` and the message `identifier`.
+
+| arguments                                                                        | description                                                                                         |
+|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `identifier: int`                                                                | The midi message data value to listen to                                                            |
+| `name: str`                                                                      | The name of the control that is used to reference it within your project                            |
+| `channel: int` (default: `0`)                                                    | The midi message channel to listen to                                                               |
+| `msg_type: int` <br/>(default: `ableton.v2.control_surface.MIDI_CC_TYPE`)        | The midi message type of the hardware control. [See all available types](#Valid-midi-message-types) |
+| `map_mode: Live.MidiMap.MapMode` <br/>(default: `Live.MidiMap.MapMode.absolute`) | TODO which values are available?                                                                    |
+| `mapping_sensitivity: float` (default: `1.0`)                                    | TODO                                                                                                |
+| `needs_takeover: bool` (default: `True`)                                         | TODO                                                                                                |
+| `is_feedback_enabled: bool` (default: `False`)                                   | TODO                                                                                                |
+| `feedback_delay: int` (default: `0`)                                             | TODO                                                                                                |
+
+#### `add_button`
+
+Add an encoder element for the midi channel `channel` and the message `identifier`.
+
+| arguments                                                                 | description                                                                                         |
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `identifier: int`                                                         | The midi message data value to listen to                                                            |
+| `name: str`                                                               | The name of the control that is used to reference it within your project                            |
+| `channel: int` (default: `0`)                                             | The midi message channel to listen to                                                               |
+| `msg_type: int` <br/>(default: `ableton.v2.control_surface.MIDI_CC_TYPE`) | The midi message type of the hardware control. [See all available types](#Valid-midi-message-types) |
+| `is_momentary: bool` <br/>(default: `True`)                               | TODO                                                                                                |
+| `led_channel: int` (default: `None`)                                      | TODO                                                                                                |
+
+#### `add_encoder_matrix`
+
+TODO
+
+#### `add_button_matrix`
+
+TODO
+
+### Valid midi message types
+
+The API already defines message types as constants that can be reused to configure
+your Remote Script.
+
+```python
+from ableton.v2.control_surface import (
+    MIDI_NOTE_TYPE,
+    MIDI_CC_TYPE,
+    MIDI_PB_TYPE,
+    MIDI_SYSEX_TYPE,
+    MIDI_INVALID_TYPE
+)
+```
+
+For our example we just want to access the first Encoder and the first button row of the **BCR2000**.
+
+```python
+# elements.py
+
+from ableton.v3.control_surface import ElementsBase
+
+
+class BCR2000Elements(ElementsBase):
+
+    def __init__(self, *a, **k):
+        super().__init__(*a, **k)
+        # TODO add the elements
+
+```
 
 ## `ControlSurfaceSpecification`
 
