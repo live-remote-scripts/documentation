@@ -17,20 +17,29 @@ Live will (most probably) call this function upon application start.
 
 ```python
 def create_instance(c_instance) -> ControlSurface:
-    return MyControlSurface(c_instance=c_instance)
+    return CustomBCR2000(c_instance=c_instance)
 ```
 
 Whenever the import of this file, or the call of the `create_instance` function
 errors, your remote script **will not** be available in Live.
 
+## `Specification`
+
 ## `ControlSurface`
 
-The Control Surface...
+The Control Surface represents your controller. Each control surface is instantiated once
+it is selected in Live. You need to inherit from this class.
+
+```python
+class CustomBCR2000(ControlSurface):
+    # TODO Override init and provide specification
+    # log a message
+    # setup function
+
+```
 
 ## `Component`
 
 ## `Elements`
-
-## `Specification`
 
 

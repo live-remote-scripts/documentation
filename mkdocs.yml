@@ -2,11 +2,16 @@ site_name: Unofficial Live Remote Scripts Docs
 site_url: https://live-remote-scripts.github.io
 theme:
   name: material
+  palette:
+    scheme: slate
 nav:
   - About: index.md
   - Getting Started: getting_started.md
   - Remote Scripts API:
-      - Main Components: api_main_components.md
+      - Main Components: api/main_components.md
+      - Live Object Model: api/live_object_model.md
+      - Listeners: api/listeners.md
+  - Contribution: contribution.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
